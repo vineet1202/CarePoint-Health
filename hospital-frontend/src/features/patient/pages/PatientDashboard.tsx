@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { useMyAppointments } from "@/features/appointments/hooks/useMyAppointments";
 import type { AppointmentResponse } from "@/features/appointments/types/appointment.types";
 import { buttonVariants } from "@/components/ui/button";
+import { PageLoader } from "@/components/ui/pageLoader";
 
 const getAppointmentDateTime = (appointment: AppointmentResponse) => {
   return new Date(`${appointment.slotDate}T${appointment.startTime}`);
@@ -98,9 +99,7 @@ const PatientDashboardPage = () => {
 
           <CardContent>
             {isLoading ? (
-              <div className="py-12 text-center text-muted-foreground">
-                Loading your appointments...
-              </div>
+              <PageLoader />
             ) : isError ? (
               <div className="py-12 text-center text-destructive">
                 Failed to load appointments.

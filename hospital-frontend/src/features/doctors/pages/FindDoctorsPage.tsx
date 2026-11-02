@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 
 import { useDebounce } from "@/hooks/useDebounce";
 import { useDoctors } from "../hooks/useDoctors";
+import { PageLoader } from "@/components/ui/pageLoader";
 
 const specializations = [
   {
@@ -132,9 +133,7 @@ export default function FindDoctorsPage() {
       )}
 
       {/* Loading */}
-      {search.trim() && isLoading && (
-        <p className="text-sm text-muted-foreground">Searching doctors...</p>
-      )}
+      {search.trim() && isLoading && <PageLoader />}
 
       {/* Error */}
       {search.trim() && isError && (

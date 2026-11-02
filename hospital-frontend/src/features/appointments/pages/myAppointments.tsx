@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMyAppointments } from "../hooks/useMyAppointments";
 import { AppointmentCard } from "../components/PatientAppointmentCard";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PageLoader } from "@/components/ui/pageLoader";
 
 type AppointmentFilter = "UPCOMING" | "PAST" | "CANCELLED";
 
@@ -10,7 +11,7 @@ export function MyAppointments() {
 
   const [filter, setFilter] = useState<AppointmentFilter>("UPCOMING");
 
-  if (isLoading) return <p>Loading appointments...</p>;
+  if (isLoading) return <PageLoader />;
 
   if (isError) return <p>Failed to load appointments.</p>;
 

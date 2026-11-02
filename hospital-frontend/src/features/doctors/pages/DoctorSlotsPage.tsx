@@ -36,6 +36,7 @@ import {
   useGenerateSlots,
   useDeleteSlot,
 } from "../hooks/useDoctorSlots";
+import { PageLoader } from "@/components/ui/pageLoader";
 
 // const getTodayDate = () => {
 //   const today = new Date();
@@ -459,9 +460,7 @@ export default function DoctorSlotsPage() {
       </div>
 
       {/* Loading */}
-      {isLoading && (
-        <p className="text-sm text-muted-foreground">Loading your slots...</p>
-      )}
+      {isLoading && <PageLoader />}
 
       {/* Error */}
       {isError && (

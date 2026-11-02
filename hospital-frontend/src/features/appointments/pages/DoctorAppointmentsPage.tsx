@@ -23,6 +23,7 @@ import {
   getDoctorAppointments,
   localDateString,
 } from "../api/consultationApi";
+import { PageLoader } from "@/components/ui/pageLoader";
 
 const formatDate = (value: string) =>
   new Date(`${value}T00:00:00`).toLocaleDateString("en-IN", {
@@ -301,11 +302,7 @@ export default function DoctorAppointmentsPage() {
       )}
 
       {/* Loading and error states */}
-      {appointmentsQuery.isLoading && (
-        <p className="py-8 text-center text-sm text-muted-foreground">
-          Loading appointments…
-        </p>
-      )}
+      {appointmentsQuery.isLoading && <PageLoader />}
 
       {appointmentsQuery.isError && (
         <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
