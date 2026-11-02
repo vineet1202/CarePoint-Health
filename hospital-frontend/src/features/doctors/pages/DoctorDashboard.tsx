@@ -7,6 +7,7 @@ import {
   CalendarPlus,
   ArrowRight,
   Stethoscope,
+  Loader2,
 } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -125,9 +126,12 @@ export default function DoctorDashboardPage() {
 
       {/* Loading */}
       {isLoading && (
-        <p className="text-sm text-muted-foreground">
-          Loading your dashboard...
-        </p>
+        <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3">
+          <Loader2 className="size-9 animate-spin text-primary" />
+          <p className="text-sm font-medium text-muted-foreground">
+            Loading your dashboard...
+          </p>
+        </div>
       )}
 
       {/* Error */}
